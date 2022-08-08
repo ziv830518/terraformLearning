@@ -1,8 +1,8 @@
-resource "aws_instance" "r100c96" {
-  ami               = "ami-0a9d27a9f4f5c0efc"
+resource "aws_instance" "web-server-instance" {
+  ami               = "ami-07200fa04af91f087"
   instance_type     = "t2.micro"
-  availability_zone = "ap-south-1b"
-  key_name          = "aws-exam-testing"
+  availability_zone = "ap-northeast-1a"
+  key_name          = "main-key"
   tags = {
     Name = "Terraform-diff-linux"
   }
@@ -27,9 +27,9 @@ resource "aws_instance" "r100c96" {
 }
 
 output "ip" {
-  value = aws_instance.r100c96.public_ip
+  value = aws_instance.web-server-instance.public_ip
 }
 
 output "publicName" {
-  value = aws_instance.r100c96.public_dns
+  value = aws_instance.web-server-instance.public_dns
 }
