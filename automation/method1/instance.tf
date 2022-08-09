@@ -10,10 +10,10 @@ resource "aws_instance" "web-server-instance" {
   provisioner "remote-exec" {
     inline = [ "sudo hostnamectl set-hostname cloudEc2.technix.com" ]
     connection {
-      host        = aws_instance.r100c96.public_dns
+      host        = aws_instance.web-server-instance
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("./aws-exam-testing.pem")
+      private_key = file("./main-key.pem")
     }
   }
 
